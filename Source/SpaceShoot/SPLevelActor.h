@@ -3,7 +3,6 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
-#include "smartjson.hpp"
 #include "SPLevelActor.generated.h"
 
 class AAIController;

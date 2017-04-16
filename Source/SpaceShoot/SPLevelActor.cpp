@@ -3,14 +3,11 @@
 #include "SpaceShoot.h"
 #include "SPLevelActor.h"
 #include "SPGameMode.h"
-#include "SmartJsonObject.h"
 #include "SPEnemy.h"
 #include "SPMapActor.h"
 #include "AIController.h"
 #include "EnemyDataRow.h"
 #include "LevelDataRow.h"
-
-#include "sheet/SPSStage.h"
 
 // Sets default values
 ASPLevelActor::ASPLevelActor()

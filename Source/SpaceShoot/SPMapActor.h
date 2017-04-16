@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "PaperSprite.h"
 #include "PaperSpriteComponent.h"
 #include "SPMapActor.generated.h"
 

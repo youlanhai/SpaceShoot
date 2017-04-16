@@ -12,14 +12,13 @@ public class SpaceShoot : ModuleRules
 			"Engine",
 			"InputCore",
 			"UMG",
-			"Paper2D"
+			"Paper2D",
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {
 			"Slate",
 			"SlateCore",
-			"libSmartJson",
-			"AIModule"
+			"AIModule",
 		});
 	}
 }

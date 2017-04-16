@@ -60,7 +60,7 @@ void ASPMapActor::InitMap(const FString &Image)
         Sprites[i]->DestroyComponent();
     }
     Sprites.Empty();
-    
+
     FVector2D Size = Sprite->GetSourceSize();
     int NComs = FMath::CeilToInt(ScreenBox.GetSize().Y / Size.Y) + 1;
     TotalHeight = NComs * Size.Y;
