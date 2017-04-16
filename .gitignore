@@ -1,0 +1,14 @@
+Binaries/
+Build/
+Intermediate/
+Saved/
+SpaceShoot.xcworkspace/
+
+*.pyc
+.DS_Store
+~*.xlsx
+.vs/
+*.VC.db
+*.opendb
+
+/SpaceShoot.sln
