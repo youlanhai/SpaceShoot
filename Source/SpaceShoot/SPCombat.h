@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -28,34 +28,34 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Enemy")
     void StopFire();
 
-    // ÇĞ»»·¢ÉäÆ÷
+    // åˆ‡æ¢å‘å°„å™¨
     UFUNCTION(BlueprintCallable, Category = "Enemy")
     void SwitchEmitter(int32 EmitterID);
 
-    // Ö´ĞĞÒÆ¶¯µ½Ä¿±êµã
+    // æ‰§è¡Œç§»åŠ¨åˆ°ç›®æ ‡ç‚¹
     UFUNCTION(BlueprintCallable, Category = "Enemy")
     void MoveToDirect(const FVector &Destination);
 
-    // ÒÆ¶¯½áÊø»Øµ÷
+    // ç§»åŠ¨ç»“æŸå›è°ƒ
     UPROPERTY(BlueprintAssignable)
     FEntityMoveFinishedDelegate OnMoveToFinished;
 
 protected:
     void TickMove(float Elapse);
 
-    // ÒÆ¶¯Â·µã
+    // ç§»åŠ¨è·¯ç‚¹
     TArray<FVector> Path;
 
-    // Â·µãË÷Òı
+    // è·¯ç‚¹ç´¢å¼•
     int32           PathIndex;
 
-    // ÒÑ¾­ÒÆ¶¯µÄÊ±¼ä
+    // å·²ç»ç§»åŠ¨çš„æ—¶é—´
     float           MoveElapse;
 
-    // ·¢ÉäÆ÷
+    // å‘å°„å™¨
     UPROPERTY()
     USPBulletEmitter*   Emitter;
 
-    // ÊÇ·ñÕıÔÚ¿ª»ğÖĞ
+    // æ˜¯å¦æ­£åœ¨å¼€ç«ä¸­
     bool            bFiring;
 };

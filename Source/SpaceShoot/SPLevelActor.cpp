@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SpaceShoot.h"
 #include "SPLevelActor.h"
@@ -79,7 +79,7 @@ void ASPLevelActor::BeginNextWave(ASPGameMode *GameMode)
     
     if(CurrentWaveIndex + 1 >= WaveIDs.Num())
     {
-        // TODO ´¦ÀíÓÎÏ·½áÊøÊÂ¼ş
+        // TODO å¤„ç†æ¸¸æˆç»“æŸäº‹ä»¶
         CurrentWaveIndex = -1;
     }
     

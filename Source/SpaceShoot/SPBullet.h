@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -31,15 +31,15 @@ public:
     void RemoveBulletEvent(USPBulletEvent *E);
 
 public:
-    // ÉúÃüÖÜÆÚ
+    // ç”Ÿå‘½å‘¨æœŸ
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float       LifeTime;
 
-    // ÒÑ¾­ÔË¶¯¹ıµÄÊ±¼ä¡£
+    // å·²ç»è¿åŠ¨è¿‡çš„æ—¶é—´ã€‚
     UPROPERTY(BlueprintReadOnly)
     float       Elapse;
 
-    // ·¢ÉäÆ÷·¢Éä³öÀ´µÄË³ĞòË÷Òı
+    // å‘å°„å™¨å‘å°„å‡ºæ¥çš„é¡ºåºç´¢å¼•
     UPROPERTY(BlueprintReadOnly)
     int32       Index;
 

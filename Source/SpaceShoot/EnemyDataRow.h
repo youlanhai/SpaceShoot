@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 #include "Engine/DataTable.h"
@@ -20,35 +20,35 @@ public:
     UPROPERTY(EditAnywhere)
     FString Describe;
 
-    // ×î´óÑªÁ¿
+    // æœ€å¤§è¡€é‡
     UPROPERTY(EditAnywhere)
     int32   HPMax;
 
-    // ¹¥»÷Á¦
+    // æ”»å‡»åŠ›
     UPROPERTY(EditAnywhere)
     int32   Attack;
 
-    // ·ÀÓùÁ¦
+    // é˜²å¾¡åŠ›
     UPROPERTY(EditAnywhere)
     int32   Defence;
 
-    // ÒÆ¶¯ËÙ¶È
+    // ç§»åŠ¨é€Ÿåº¦
     UPROPERTY(EditAnywhere)
     float   MoveSpeed;
 
-    // ¶¯»­
+    // åŠ¨ç”»
     UPROPERTY(EditAnywhere)
     class UPaperFlipbook*     Animation;
 
-    // ¶¯»­Æ«×ª½Ç¶È
+    // åŠ¨ç”»åè½¬è§’åº¦
     UPROPERTY(EditAnywhere)
     float   AmRotation;
 
-    // ·¢ÉäÆ÷ID
+    // å‘å°„å™¨ID
     UPROPERTY(EditAnywhere)
     int32   EmitterID;
 
-    // AI¿ØÖÆÆ÷Àà
+    // AIæ§åˆ¶å™¨ç±»
     UPROPERTY(EditAnywhere)
     TSubclassOf<class AAIController>    ControllerClass;
 };

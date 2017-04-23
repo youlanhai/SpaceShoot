@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SpaceShoot.h"
 #include "SPBullet.h"
@@ -75,7 +75,7 @@ void ASPBullet::Tick(float Delta)
     FQuat Rotation = GetActorQuat();
     if (!FMath::IsNearlyZero(MotionInfo.AngleSpeed))
     {
-        // ÑØ×Å-YÖáĞı×ª¡£
+        // æ²¿ç€-Yè½´æ—‹è½¬ã€‚
         float Radian = FMath::DegreesToRadians(MotionInfo.AngleSpeed * Delta);
         Rotation *= FQuat(FVector(0.0f, -1.0f, 0.0f), Radian);
     }
