@@ -5,9 +5,10 @@
 #include "SPGameMode.h"
 #include "SPEnemy.h"
 #include "SPMapActor.h"
-#include "AIController.h"
 #include "EnemyDataRow.h"
 #include "LevelDataRow.h"
+
+#include <AIController.h>
 
 // Sets default values
 ASPLevelActor::ASPLevelActor()
@@ -21,23 +22,6 @@ ASPLevelActor::ASPLevelActor()
     {
         EnemyDataTable = EnemyDataTableAsset.Get();
     }
-
-    static ConstructorHelpers::FObjectFinderOptional<UDataTable> LevelDataTableAsset(TEXT("DataTable'/Game/SpaceShoot/Data/LevelData1.LevelData1'"));
-    if (LevelDataTableAsset.Succeeded())
-    {
-        LevelDataTable = LevelDataTableAsset.Get();
-
-        for (auto it = LevelDataTable->RowMap.CreateConstIterator(); it; ++it)
-        {
-            FLevelDataRow *Row = reinterpret_cast<FLevelDataRow*>(it.Value());
-            auto &Arr = WaveDataMap.FindOrAdd(Row->WaveID);
-            Arr.Add(Row);
-        }
-
-        WaveIDs.Empty();
-        WaveDataMap.GetKeys(WaveIDs);
-    }
-    UE_LOG(LogGame, Log, TEXT("Num Actions %d"), WaveIDs.Num());
 }
 
 // Called when the game starts or when spawned
@@ -47,17 +31,17 @@ void ASPLevelActor::BeginPlay()
     
     UE_LOG(LogGame, Log, TEXT("Level Actor Begin Play"));
 
-    Map = GetWorld()->SpawnActor<ASPMapActor>(FVector(0, -10, 0), FRotator(0, 0, 0));
-    if(Map != nullptr)
-    {
-        Map->InitMap(TEXT("/Game/SpaceShoot/Sprites/Map/bg_hei_0_Sprite"));
-    }
 }
 
 // Called every frame
 void ASPLevelActor::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
+
+    if (LevelDataTable == nullptr)
+    {
+        return;
+    }
     
     ASPGameMode *GameMode = Cast<ASPGameMode>(UGameplayStatics::GetGameMode(this));
     if(nullptr == GameMode || GameMode->IsGamePause())
@@ -70,6 +54,43 @@ void ASPLevelActor::Tick( float DeltaTime )
     {
         BeginNextWave(GameMode);
     }
+}
+
+bool ASPLevelActor::LoadLevelData(int32 _ID)
+{
+    ID = _ID;
+
+    FString LevelDataPath = FString::Printf(TEXT("/Game/SpaceShoot/Data/LevelData%d"), ID);
+    LevelDataTable = LoadObject<UDataTable>(nullptr, *LevelDataPath);
+    if (LevelDataTable == nullptr)
+    {
+        UE_LOG(LogGame, Error, TEXT("Failed to load level data '%s'"), *LevelDataPath);
+        return false;
+    }
+
+    WaveIDs.Empty();
+    WaveDataMap.Empty();
+
+    // 提取关卡数据，以WaveID作为Key
+    for (auto it = LevelDataTable->RowMap.CreateConstIterator(); it; ++it)
+    {
+        FLevelDataRow *Row = reinterpret_cast<FLevelDataRow*>(it.Value());
+        auto &Arr = WaveDataMap.FindOrAdd(Row->WaveID);
+        Arr.Add(Row);
+    }
+
+    // 提取所有的WaveID
+    WaveDataMap.GetKeys(WaveIDs);
+    WaveIDs.Sort();
+
+    UE_LOG(LogGame, Log, TEXT("Level: Num Waves %d"), WaveIDs.Num());
+
+    Map = GetWorld()->SpawnActor<ASPMapActor>(FVector(0, -10, 0), FRotator(0, 0, 0));
+    if (Map != nullptr)
+    {
+        Map->InitMap(TEXT("/Game/SpaceShoot/Sprites/Map/bg_hei_0_Sprite"));
+    }
+    return true;
 }
 
 void ASPLevelActor::BeginNextWave(ASPGameMode *GameMode)
