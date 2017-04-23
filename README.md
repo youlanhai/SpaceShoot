@@ -1,4 +1,5 @@
 
-# 新建场景说明：
-1. 在场景的世界设置中，将`GameMode Override`设置为`MenuGameMode`
-2. 在场景中加入关卡对象`SPLevelActor`
+# 说明
+使用UE4 v15.1开发的2D飞行射击小游戏，仅用于学习目的。主要使用C++来开发，部分功能使用到了Blueprint。
+
+![](SpaceShoot.png)
