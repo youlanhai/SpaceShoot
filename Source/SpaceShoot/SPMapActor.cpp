@@ -66,8 +66,8 @@ void ASPMapActor::InitMap(const FString &Image)
     int NComs = FMath::CeilToInt(ScreenBox.GetSize().Y / Size.Y) + 1;
     TotalHeight = NComs * Size.Y;
     
-    UE_LOG(LogGame, Log, TEXT("Sprite Size: %s, Num Components: %d, TotalHeight: %0.3f"),
-           *Size.ToString(), NComs, TotalHeight);
+    UE_LOG(LogGame, Log, TEXT("Map - Screen Size: %s, Sprite Size: %s, Num Components: %d, TotalHeight: %0.3f"),
+           *ScreenBox.ToString(), *Size.ToString(), NComs, TotalHeight);
     
     for(int i = 0; i < NComs; ++i)
     {

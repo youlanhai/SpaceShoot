@@ -45,7 +45,9 @@ void ASPLevelActor::BeginPlay()
 {
 	Super::BeginPlay();
     
-    ASPMapActor *Map = GetWorld()->SpawnActor<ASPMapActor>(FVector(0, -10, 0), FRotator());
+    UE_LOG(LogGame, Log, TEXT("Level Actor Begin Play"));
+
+    Map = GetWorld()->SpawnActor<ASPMapActor>(FVector(0, -10, 0), FRotator(0, 0, 0));
     if(Map != nullptr)
     {
         Map->InitMap(TEXT("/Game/SpaceShoot/Sprites/Map/bg_hei_0_Sprite"));

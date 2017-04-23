@@ -7,6 +7,7 @@
 
 class AAIController;
 class ASPGameMode;
+class ASPMapActor;
 
 class UDataTable;
 
@@ -43,6 +44,9 @@ private:
 
     UPROPERTY()
     UDataTable*     LevelDataTable;
+
+    UPROPERTY()
+    ASPMapActor*    Map;
 
     TMap<int32, TArray<FLevelDataRow*>>     WaveDataMap;
 };

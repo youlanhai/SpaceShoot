@@ -18,7 +18,6 @@
 ASPEnemy::ASPEnemy()
 {
     PrimaryActorTick.bCanEverTick = true;
-    UE_LOG(LogGame, Log, TEXT("Enemy Contruction"));
 }
 
 bool ASPEnemy::Init(int32 _ID, FEnemyDataRow *_Data, ASPLevelActor *_Level)
