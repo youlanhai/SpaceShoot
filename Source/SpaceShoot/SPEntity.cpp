@@ -3,6 +3,7 @@
 #include "SpaceShoot.h"
 #include "SPEntity.h"
 #include "SPExplose.h"
+#include "PaperFlipbook.h"
 
 void OnExploseEnd(AActor *Actor)
 {

@@ -5,6 +5,8 @@
 #include "SPGameMode.h"
 #include "SPBulletEvent.h"
 
+#include <PaperFlipbook.h>
+
 ASPBullet::ASPBullet()
 : LifeTime(5.0f)
 {

@@ -9,6 +9,8 @@
 #include "EmitterDataRow.h"
 #include "EngineUtils.h"
 
+#include <PaperFlipbook.h>
+
 USPBulletEmitter::USPBulletEmitter(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer)
 , Owner_(nullptr)

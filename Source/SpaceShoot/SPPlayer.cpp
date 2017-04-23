@@ -7,6 +7,8 @@
 #include "SPGameMode.h"
 #include "SPBulletEmitter.h"
 
+#include <PaperFlipbook.h>
+
 ASPPlayer::ASPPlayer()
 {
     PrimaryActorTick.bCanEverTick = true;
